@@ -67,17 +67,17 @@ const About = () => {
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">Let's Connect</h2>
               <div className="flex flex-col gap-2">
                 <a 
-                  href="mailto:karanbairwa111@gmail.com"
+                  href="mailto:karanbairwaa@gmail.com"
                   className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors group"
                 >
                   <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
                     <Mail className="w-5 h-5" />
                   </div>
-                  <span className="text-lg">karanbairwa111@gmail.com</span>
+                  <span className="text-lg">karanbairwaa@gmail.com</span>
                 </a>
                 
                 <a 
-                  href="https://github.com/kratos7777"
+                  href="https://github.com/Karanbairwaa12"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-gray-600 hover:text-purple-600 transition-colors group"
@@ -85,11 +85,11 @@ const About = () => {
                   <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-purple-50 transition-colors">
                     <Github className="w-5 h-5" />
                   </div>
-                  <span className="text-lg">github.com/kratos7777</span>
+                  <span className="text-lg">https://github.com/Karanbairwaa12</span>
                 </a>
                 
                 <a 
-                  href="https://www.linkedin.com/in/karan-bairwa-509513197"
+                  href="https://www.linkedin.com/in/karan-bairwa-977a2b237/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors group"
