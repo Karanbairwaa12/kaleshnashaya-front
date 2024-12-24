@@ -31,7 +31,7 @@ const LayoutWithSidebar = () => {
 			<div
 				className={`fixed lg:relative lg:flex ${
 					isSidebarOpen ? "flex" : "hidden"
-				} z-40`}>
+				} z-20`}>
 				<Sidebar setIsSidebarOpen={setIsSidebarOpen} />
 			</div>
 

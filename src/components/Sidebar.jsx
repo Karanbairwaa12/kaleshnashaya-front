@@ -115,7 +115,7 @@ const Sidebar = ({setIsSidebarOpen}) => {
               Guide
             </p>
             <button
-              // onClick={() => handleNavigate("/")}
+              onClick={() => handleNavigate("/about")}
               className={`menu-item flex items-center w-full px-3 py-2 text-sm text-gray-700 rounded-lg group ${
                 isActiveRoute("/settings") ? "bg-[#00000014]" : ""
               }`}
