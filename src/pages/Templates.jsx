@@ -88,7 +88,7 @@ const Templates = () => {
 
 	return (
 		<>
-			<div className="flex-1 bg-gray-100 p-8 overflow-hidden">
+			<div className="flex-1 bg-gray-100 p-8 overflow-hidden z-20">
 				<div className="flex justify-end mb-6">
 					<button
 						className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition duration-300"

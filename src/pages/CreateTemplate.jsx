@@ -69,7 +69,7 @@ const CreateTemplate = () => {
 
 	return (
 		<div className="min-h-screen bg-gray-100 flex items-center justify-center">
-			<div className="w-full max-w-5xl bg-white p-8 rounded-lg shadow-lg">
+			<div className="w-full max-w-5xl bg-white p-8 rounded-lg shadow-lg z-20">
 				<h1 className="text-2xl font-bold mb-8 text-center">Create Template</h1>
 
 				{/* Formik Form */}

@@ -22,7 +22,7 @@ const LayoutWithSidebar = () => {
 				</button>
 			)}
 
-			<div className="fixed inset-auto h-auto bottom-0 right-0 p-8 font-bold text-base text-[#edeff1] z-50">
+			<div className="fixed inset-auto h-auto bottom-0 right-0 p-8 font-bold text-base text-[#edeff1] z-10">
 				<div>कृष्णाय वासुदेवाय हरये परमात्मने ।</div>
 				<div>प्रणतः क्लेशनाशाय गोविंदाय नमो नमः।।</div>
 			</div>
@@ -44,7 +44,7 @@ const LayoutWithSidebar = () => {
 			)}
 
 			{/* Main content */}
-			<div className="flex-1 overflow-auto relative">
+			<div className="flex-1 overflow-auto relative z-20">
 				<Outlet />
 			</div>
 		</div>

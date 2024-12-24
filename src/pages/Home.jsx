@@ -39,7 +39,7 @@ export const Home = () => {
       
       {/* Main Content */}
       <div className="flex-1 p-8 pt-16 overflow-y-auto">
-        <div className="max-w-2xl mx-auto space-y-8">
+        <div className="max-w-2xl mx-auto space-y-8 z-20">
           
           <div className="animate-slide-up">
             <h2 className="text-3xl font-bold text-gray-800 mb-6">HR Email Submission</h2>

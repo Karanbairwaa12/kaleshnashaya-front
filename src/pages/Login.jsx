@@ -44,7 +44,7 @@ export const Login = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
       <div className="w-full max-w-md p-8 transform transition-all">
-        <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl p-8 border border-gray-200">
+        <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl p-8 border border-gray-200 z-20">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-medium text-gray-900">Welcome Back</h2>
             <p className="text-gray-600 mt-2">Sign in to continue</p>
