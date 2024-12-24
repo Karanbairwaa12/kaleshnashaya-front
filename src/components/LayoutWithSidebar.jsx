@@ -11,7 +11,7 @@ const LayoutWithSidebar = () => {
 	};
 
 	return (
-		<div className="flex h-screen bg-[#f5f5f7] relative">
+		<div className="flex h-screen bg-[#f5f5f7]">
 			{/* Hamburger button - visible only on mobile */}
 			{!isSidebarOpen && (
 				<button
@@ -44,7 +44,7 @@ const LayoutWithSidebar = () => {
 			)}
 
 			{/* Main content */}
-			<div className="flex-1 overflow-auto">
+			<div className="flex-1 overflow-auto relative">
 				<Outlet />
 			</div>
 		</div>

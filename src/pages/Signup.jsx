@@ -122,7 +122,7 @@ export const Signup = () => {
             {/* 2FA Field */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Google 2FA Code
+                Google Mail App Password
               </label>
               <input
                 type="password"

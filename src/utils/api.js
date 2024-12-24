@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an Axios instance
 const api = axios.create({
-  baseURL: 'https://kaleshnashaya-backend.vercel.app',
+  baseURL: 'http://localhost:8000',
   timeout: 10000, // Optional: set a timeout for requests
 });
 

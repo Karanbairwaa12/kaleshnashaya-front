@@ -27,6 +27,7 @@ const Sidebar = ({setIsSidebarOpen}) => {
 
   const handleNavigate = (path) => {
     navigate(path);
+    setIsSidebarOpen(false);
   };
 
   const isActiveRoute = (path) => {
