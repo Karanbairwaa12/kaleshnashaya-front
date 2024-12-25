@@ -21,19 +21,27 @@ const Templates = () => {
 	const [showDeleteModal, setShowDeleteModal] = useState(false);
 	const [templateToApply, setTemplateToApply] = useState(null);
 	const [templateToDelete, setTemplateToDelete] = useState(null);
+	const [templateLoading, setTemplateLoading] = useState(false);
 	const [modalMessage, setModalMessage] = useState("");
 
 	useEffect(() => {
-		const fetchUserData = async () => {
-			if (user) {
-				const { data, status } = await getTemplates(user._id);
-				if (status === 200) {
-					setTemplates(data);
+		const fetchTemplateData = async () => {
+			try {
+				if (user) {
+					setTemplateLoading(true);
+					const { data, status } = await getTemplates(user._id);
+					if (status === 200) {
+						setTemplates(data);
+					}
 				}
+			} catch (error) {
+				console.log(error, "this is the error")
+			} finally {
+				setTemplateLoading(false);
 			}
 		};
 
-		fetchUserData();
+		fetchTemplateData();
 	}, [user?._id]);
 
 	const handleDelete = async () => {
@@ -98,64 +106,69 @@ const Templates = () => {
 				</div>
 
 				<div className="h-[calc(100vh-140px)] overflow-y-auto">
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-						{templates?.map((template) => (
-							<div
-								key={template?._id}
-								className="relative bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-								<div className="text-md text-gray-500 mb-4 min-h-6">
-									{template.template_name}
-								</div>
-								<div className="text-xl font-semibold text-gray-800 mb-4 min-h-14">
-									{template.subject}
-								</div>
+					{
+						templates && templates.length>0 ? (<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+							{templates?.map((template) => (
 								<div
-									className="text-sm text-gray-600 mb-4 line-clamp-6 overflow-hidden min-h-32"
-									dangerouslySetInnerHTML={{ __html: template.mail }}
-								/>
-								<div className="absolute left-0 bottom-0 w-full bg-white p-4 rounded-b-lg z-10 flex justify-between gap-2 border-t border-gray-200">
-									<button
-										onClick={() => handleShowDeleteModal(template)}
-										// disabled={template?._id === user?.current_template_id}
-										// ${
-										// 	template?._id === user?.current_template_id
-										// 		? "opacity-50 cursor-not-allowed"
-										// 		: ""
-										// }
-										className={`flex-1 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition duration-300 `}>
-										Delete
-									</button>
-
-									<button
-										onClick={() => handleShowApplyModal(template)}
-										disabled={
-											loadingTemplateId === template?._id ||
-											template?._id === user?.current_template_id
-										}
-										className={`flex-1 ${
-											template?._id === user?.current_template_id
-												? "bg-green-500"
-												: "bg-yellow-500"
-										} text-white py-2 rounded-lg hover:bg-green-600 transition duration-300 ${
-											loadingTemplateId === template?._id ||
-											template?._id === user?.current_template_id
-												? "opacity-50 cursor-not-allowed"
-												: ""
-										}`}>
-										{loadingTemplateId === template?._id ? (
-											<div className="flex justify-center items-center">
-												<FaSpinner className="animate-spin text-white" />
-											</div>
-										) : template?._id === user?.current_template_id ? (
-											"Applied"
-										) : (
-											"Apply"
-										)}
-									</button>
+									key={template?._id}
+									className="relative bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+									<div className="text-md text-gray-500 mb-4 min-h-6">
+										{template.template_name}
+									</div>
+									<div className="text-xl font-semibold text-gray-800 mb-4 min-h-14">
+										{template.subject}
+									</div>
+									<div
+										className="text-sm text-gray-600 mb-4 line-clamp-6 overflow-hidden min-h-32"
+										dangerouslySetInnerHTML={{ __html: template.mail }}
+									/>
+									<div className="absolute left-0 bottom-0 w-full bg-white p-4 rounded-b-lg z-10 flex justify-between gap-2 border-t border-gray-200">
+										<button
+											onClick={() => handleShowDeleteModal(template)}
+											// disabled={template?._id === user?.current_template_id}
+											// ${
+											// 	template?._id === user?.current_template_id
+											// 		? "opacity-50 cursor-not-allowed"
+											// 		: ""
+											// }
+											className={`flex-1 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition duration-300 `}>
+											Delete
+										</button>
+	
+										<button
+											onClick={() => handleShowApplyModal(template)}
+											disabled={
+												loadingTemplateId === template?._id ||
+												template?._id === user?.current_template_id
+											}
+											className={`flex-1 ${
+												template?._id === user?.current_template_id
+													? "bg-green-500"
+													: "bg-yellow-500"
+											} text-white py-2 rounded-lg hover:bg-green-600 transition duration-300 ${
+												loadingTemplateId === template?._id ||
+												template?._id === user?.current_template_id
+													? "opacity-50 cursor-not-allowed"
+													: ""
+											}`}>
+											{loadingTemplateId === template?._id ? (
+												<div className="flex justify-center items-center">
+													<FaSpinner className="animate-spin text-white" />
+												</div>
+											) : template?._id === user?.current_template_id ? (
+												"Applied"
+											) : (
+												"Apply"
+											)}
+										</button>
+									</div>
 								</div>
-							</div>
-						))}
-					</div>
+							))}
+						</div>): (
+							<div className="w-full h-full flex justify-center items-center">Loading...</div>
+						)
+					}
+					
 				</div>
 			</div>
 

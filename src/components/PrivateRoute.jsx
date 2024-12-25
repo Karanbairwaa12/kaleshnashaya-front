@@ -28,7 +28,7 @@ const PrivateRoute = () => {
     }, []);  // Remove dependencies to prevent unnecessary re-renders
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <div className="w-full min-h-lvh flex justify-center items-center">Loading...</div>;
     }
 
     if (!authToken) {

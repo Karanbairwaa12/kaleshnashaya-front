@@ -31,7 +31,7 @@ const LayoutWithSidebar = () => {
 			<div
 				className={`fixed lg:relative lg:flex ${
 					isSidebarOpen ? "flex" : "hidden"
-				} z-20`}>
+				} z-40`}>
 				<Sidebar setIsSidebarOpen={setIsSidebarOpen} />
 			</div>
 
@@ -44,7 +44,7 @@ const LayoutWithSidebar = () => {
 			)}
 
 			{/* Main content */}
-			<div className="flex-1 overflow-auto relative z-20">
+			<div className="flex-1 overflow-auto relative">
 				<Outlet />
 			</div>
 		</div>

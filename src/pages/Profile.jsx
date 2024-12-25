@@ -30,7 +30,7 @@ const Profile = () => {
 	return (
 		<>
 			<div className="profile-container flex-1 p-8 pt-16 overflow-y-auto">
-				<div className="max-w-4xl mx-auto z-20">
+				<div className="max-w-4xl mx-auto">
 					{updateProfile ? (
 						<div className="profile-animate-slide-up">
 							<button
