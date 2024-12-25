@@ -14,7 +14,7 @@ const validationSchema = Yup.object({
 
 const CreateTemplate = () => {
 	const { user, setLoading } = useUserStore();
-    const [error, setError] = useState();
+	const [error, setError] = useState();
 	const navigate = useNavigate();
 
 	// Component to render the preview with exact line breaks
@@ -34,15 +34,18 @@ const CreateTemplate = () => {
 	// Handle save action
 	const handleSave = async (values) => {
 		const lines = values.inputText.split("\n");
-		const templateOutput =
-			values.inputText !== ""
-				? lines
-						.map((line) => {
-							return line === "" ? "<br />" : `<p>${line}</p>`;
-						})
-						.join("\n")
-				: "";
+		// const templateOutput =
+		// 	values.inputText !== ""
+		// 		? lines
+		// 				.map((line) => {
+		// 					return line === "" ? "<br />" : `<p>${line}</p>`;
+		// 				})
+		// 				.join("\n")
+		// 		: "";
 
+		const templateOutput =
+			values.inputText !== "" ? `<p>${lines.join("<br />")}</p>` : "";
+		console.log(templateOutput)
 		const output = {
 			template_name: values.templateName,
 			subject: values.subject,
@@ -53,7 +56,7 @@ const CreateTemplate = () => {
 			if (user) {
 				// Call the API to create the template
 				const response = await createTemplate(output, user?._id);
-                console.log(response, "working")
+				console.log(response, "working");
 				if (response?.status === 201) {
 					navigate("/templates");
 				} else {
@@ -80,8 +83,7 @@ const CreateTemplate = () => {
 						inputText: "",
 					}}
 					validationSchema={validationSchema}
-					onSubmit={handleSave}
-				>
+					onSubmit={handleSave}>
 					{({ values, handleChange, handleBlur }) => (
 						<Form>
 							{/* Template Name and Subject Inputs */}
@@ -89,8 +91,7 @@ const CreateTemplate = () => {
 								<div>
 									<label
 										htmlFor="templateName"
-										className="block text-sm text-gray-600 mb-2"
-									>
+										className="block text-sm text-gray-600 mb-2">
 										Template Name
 									</label>
 									<Field
@@ -111,7 +112,9 @@ const CreateTemplate = () => {
 								</div>
 
 								<div>
-									<label htmlFor="subject" className="block text-sm text-gray-600 mb-2">
+									<label
+										htmlFor="subject"
+										className="block text-sm text-gray-600 mb-2">
 										Subject
 									</label>
 									<Field
@@ -158,7 +161,9 @@ const CreateTemplate = () => {
 
 								{/* Preview */}
 								<div className="bg-white rounded-lg shadow-sm">
-									<h2 className="text-xl font-semibold mb-4 text-center">Preview</h2>
+									<h2 className="text-xl font-semibold mb-4 text-center">
+										Preview
+									</h2>
 									<div className="w-full h-64 p-4 border rounded-md overflow-auto">
 										<FormattedPreview text={values.inputText} />
 									</div>
@@ -168,18 +173,13 @@ const CreateTemplate = () => {
 							<div className="text-center">
 								<button
 									type="submit"
-									className="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
-								>
+									className="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">
 									Save Template
 								</button>
 							</div>
-                            {
-                                error && (
-                                    <div className="text-red-500 text-center mt-4">
-                                        {error}
-                                    </div>
-                                )
-                            }
+							{error && (
+								<div className="text-red-500 text-center mt-4">{error}</div>
+							)}
 						</Form>
 					)}
 				</Formik>

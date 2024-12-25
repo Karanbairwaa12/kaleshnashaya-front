@@ -25,7 +25,7 @@ const PrivateRoute = () => {
         };
 
         fetchUserData();
-    }, []);  // Remove dependencies to prevent unnecessary re-renders
+    }, []);
 
     if (isLoading) {
         return <div className="w-full min-h-lvh flex justify-center items-center">Loading...</div>;

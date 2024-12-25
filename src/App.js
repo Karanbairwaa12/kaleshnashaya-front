@@ -10,6 +10,7 @@ import CreateTemplate from "./pages/CreateTemplate";
 import PrivateRoute from "./components/PrivateRoute"; // PrivateRoute to protect pages
 import LayoutWithSidebar from "./components/LayoutWithSidebar"; // Layout for pages with Sidebar
 import About from "./pages/About";
+import Ai from "./pages/Ai";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/templates" element={<Templates />} />
           <Route path="/create-template" element={<CreateTemplate />} />
+          <Route path="/genrate-content" element={<Ai />} />
         </Route>
       </Route>
 
