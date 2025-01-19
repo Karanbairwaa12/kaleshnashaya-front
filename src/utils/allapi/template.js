@@ -10,6 +10,16 @@ export const getTemplates = async (id) => {
 	}
 };
 
+export const getAppliedTemplate = async (id) => {
+	try {
+        const response = await api.get(`/template/apply/${id}`);
+        console.log(response?.data, "response")
+        return {...response?.data, status: response.status};
+    } catch (error) {
+        return error.response;
+    }
+}
+
 export const createTemplate = async (obj,id) => {
 	try {
 		const response = await api.post(`/template/${id}`, obj);
@@ -34,7 +44,7 @@ export const applyTemplate = async (user_id, template_id) => {
 
 export const deleteTemplate = async (template_id) => {
 	try {
-		const response = await api.delete(`template/${template_id}`);
+		const response = await api.delete(`template/apply/${template_id}`);
         console.log(response?.data, "response")
 		return {...response?.data, status: response.status};
 	} catch (error) {

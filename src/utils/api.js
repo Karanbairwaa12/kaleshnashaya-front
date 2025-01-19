@@ -3,7 +3,6 @@ import axios from 'axios';
 // Create an Axios instance
 const api = axios.create({
   baseURL: process.env.REACT_APP_BACKEND_URL,
-  timeout: 10000, // Optional: set a timeout for requests
 });
 
 // Request Interceptor

@@ -11,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoute"; // PrivateRoute to protect
 import LayoutWithSidebar from "./components/LayoutWithSidebar"; // Layout for pages with Sidebar
 import About from "./pages/About";
 import Ai from "./pages/Ai";
+import QuestionInput from "./components/TemplateUpdate";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/About" element={<About />} />
+      <Route path="/question" element={<QuestionInput />} />
 
       {/* Private Routes with Sidebar Layout */}
       <Route element={<PrivateRoute />}>
